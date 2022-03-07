@@ -1,0 +1,16 @@
+<h1>Richard Mateosian Blog</h1>
+
+{% for post in posts %}
+
+    <h2>{{ post.title }}</h2>
+
+    <p>{{ post.contents }}</p>
+
+    {% if post.image %}
+        <img src="{{ post.image.url }}" style="max-width: 150px; height: auto; " >
+    {% endif %}
+
+    {% if post.url %}
+        <br><a href="{{ post.url }}">Link</a>
+    {% endif %}
+{% endfor %}
