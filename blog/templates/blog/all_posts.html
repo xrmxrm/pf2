@@ -1,13 +1,17 @@
-<h1>Richard Mateosian Blog</h1>
+{% extends 'pfolio/base.html' %}
 
-<h2>({{ posts.count }} post{{ posts.count|pluralize }})</h2>
+{% block content %}
+    <h1>Richard Mateosian Blog</h1>
 
-{% for post in posts %}
+    <h2>({{ posts.count }} post{{ posts.count|pluralize }})</h2>
 
-    <a href="{% url 'blog:detail' post.id %}"><h2>{{ post.title }}</h2></a>
+    {% for post in posts %}
 
-    <h3>{{ post.date | date:'D, j M Y' }}</h3>
+        <a href="{% url 'blog:detail' post.id %}"><h2>{{ post.title }}</h2></a>
 
-    <p>{{ post.contents | safe | truncatechars:40 }}</p>
+        <h3>{{ post.date | date:'D, j M Y' }}</h3>
 
-{% endfor %}
+        <p>{{ post.contents | safe | truncatechars:40 }}</p>
+
+    {% endfor %}
+{% endblock %}
